@@ -7,6 +7,6 @@
 - [x] Módulo 1 | Introducción al #RetoPython
 - [x] Módulo 2 | Día 1: Instalación y tipos de datos
 - [x] Módulo 3 | Día 2: Estructuras de control
-- [ ] Módulo 4 | Día 3: Listas
+- [x] Módulo 4 | Día 3: Listas
 - [ ] Módulo 5 | Día 4: Tuplas y diccionarios
 - [ ] Módulo 6 | Día 5: Funciones
