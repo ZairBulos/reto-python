@@ -8,5 +8,5 @@
 - [x] Módulo 2 | Día 1: Instalación y tipos de datos
 - [x] Módulo 3 | Día 2: Estructuras de control
 - [x] Módulo 4 | Día 3: Listas
-- [ ] Módulo 5 | Día 4: Tuplas y diccionarios
+- [x] Módulo 5 | Día 4: Tuplas y diccionarios
 - [ ] Módulo 6 | Día 5: Funciones
