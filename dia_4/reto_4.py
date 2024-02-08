@@ -23,6 +23,7 @@ ERROR_LEN_STR = f'El valor debe tener entre {MIN_LEN_STR} y {MAX_LEN_STR} caract
 ERROR_LEN_NUM = f'El valor debe tener {MIN_LEN_NUM} dígitos.'
 
 users = []
+users_ids = []
 
 while True:
     # MENÚ
@@ -50,8 +51,9 @@ while True:
         users_amount = int(input('¿Cúantos usuarios desea ingresar?: '))
 
         for user_id in range(users_amount):
-            # Identificador único
-            id = user_id + 1
+            # Identificadores únicos
+            id = len(users) + 1
+            users_ids.append(id)
             
             print(f'----- REGISTRO DE USUARIO Nº{id} -----')
 
@@ -106,8 +108,6 @@ while True:
     # LISTADO
     elif option == 2:
         print('\n-------- LISTADO DE IDs --------')
-
-        users_ids = [ user['id'] for user in users ]
         print(users_ids)
     
     # INFORMACIÓN
@@ -116,15 +116,11 @@ while True:
 
         user_id = int(input('Ingrese ID del usuario a buscar: '))
 
-        found_user = None
-
-        for user in users:
-            if user['id'] == user_id:
-                found_user = user
-                break
-
-        if found_user:
-            print(found_user)
+        if user_id in users_ids:
+            for user in users:
+                if user['id'] == user_id:
+                    print(user)
+                    break
         else:
             print(f'Lo sentimos, el usuario con id {user_id} no existe.')
 
@@ -134,14 +130,13 @@ while True:
 
         user_id = int(input('Ingrese ID del usuario a editar: '))
 
-        found_user = None
+        if user_id in users_ids:
+            # Buscar usuario
+            for user in users:
+                if user['id'] == user_id:
+                    found_user = user
+                    break
 
-        for user in users:
-            if user['id'] == user_id:
-                found_user = user
-                break
-
-        if found_user:
             # Nombre
             while True:
                 name = input('Ingrese nombre: ')
@@ -183,7 +178,6 @@ while True:
             found_user['last_name'] = last_name
             found_user['phone'] = phone
             found_user['email'] = email
-
         else:
             print(f'Lo sentimos, el usuario con id {user_id} no existe.')
 
